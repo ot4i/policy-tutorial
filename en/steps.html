@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ 
+	
+<!-- header::Start -->
+	<head>
+		<!-- Use Internet Explorer 9 Standards mode for Eclipse Browser Control - https://www.eclipse.org/swt/faq.php#browsernativeie and https://msdn.microsoft.com/en-us/library/jj676915%28v=vs.85%29.aspx -->
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		
+		<!-- Next 2 http=equiv headers required to disable caching the Eclipse Browser Widget -->
+		<meta http-equiv="Pragma" content="no-cache">
+  		<meta http-equiv="Expires" content="-1">
+
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="copyright" content="Copyright IBM Corporation 2014" />
+		<meta name="abstract" content="IBM Integration Bus V10 Tutorial">
+		<meta name="author" content="IBM">
+		<meta name="description" content="IBM Integration Bus V10 Tutorial">
+		<meta name="keywords" content="keywords" > 
+		<meta name="robots" content="index,follow">
+		<meta name="source" content="IBM Integration Bus V10 Tutorial" /> 
+		
+		<title>IBM Integration Bus V10 Tutorial</title>
+
+    	<link rel="stylesheet" href="http://ot4i.github.io/iib-tutorials/css/main.css" />
+		<link rel="stylesheet" href="http://ot4i.github.io/iib-tutorials/css/app.css" />
+    	
+		<script src="http://ot4i.github.io/iib-tutorials/js/json2.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/js2java.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/js2java_steps.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
+	</head>
+<!-- header::End -->
+<!-- body::Start -->
+		<body>
+  	<!-- body content here -->
+	<div class="row">
+	  <div class="small-12 medium-12 large-12 columns">
+	    <p> </p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="small-9 medium-9 large-9 columns">
+	    <h4 class="title">Policy Projects and Policies <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
+	  </div>
+	  <div class="small-3 medium-3 large-3 columns">
+		<a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm')" class="small right helplink">IBM Knowledge Center</a> 
+	  </div>
+	</div> 
+	<hr>
+	<div class="row">
+		<div class="small-10 medium-10 large-10 columns">
+		<h5> Learn how create a policy and deploy one to an Integration Server. </h5>
+		</div>
+		<div class="small-2 medium-2 large-2 columns">
+			<button class="small radius button right" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
+			</button>
+		</div>
+	</div>
+	<div class="row">          
+		  <div class="small-12 medium-12 large-12 columns">
+			<ul class="tabs vertical"> 
+				<li class="tab-title tab-title-small active">
+				  <a href="javascript:;" onclick="show('panel21')">Create</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel31')">Prepare</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel41')">Run</a> 
+				</li>
+			</ul>
+			<!-- editing -->
+			<div class="tabs-content panel-thin-blue vertical"> 
+		    	<div class="content active" id="panel21">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				      	<div class="row content-details">
+					      	<h4>Import projects</h4>
+					        
+						    
+								<p> Click <span class="uicontrol">Import</span> and the <span class="application">SimpleApp</span> application along with a Policy Project, <span class="application">Policies</span> will both be imported to your workspace. </p>
+								
+							
+								<p> This simple application contains a single messageflow which listens and replies over HTTP. Once we have created our Policy we will build both that and the message flow into a Bar file ready for deployment. </p>
+								
+							
+						</div>
+						
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="importArtifacts(); openResource('EventRoutingFlow')"> Import <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>
+										
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel31">
+					
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+						<div class="row content-details">
+						  	<h4>Prepare an Integration Server</h4>
+						    
+						    
+								<p>  </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and run the following command: <br><code>mqsicreateworkdir C:\MyServer</code><br> where <b>C:\MyServer</b> will the working directory for your Integration Server.
+										
+										</li>
+									
+										<li> Right-Click on the Policy Project in the Application Development tab and create a new Policy. Call it ActivityLogPolicy and click 'Finish'
+										
+										</li>
+									
+										<li> Open the new policy for configuring and change the Type to Activity Log. After a brief moment the table below should populate with various fields. Find the 'File name' field and set the value to <b>C:\MyServer\activityLog.txt<b>
+										
+										</b></b></li>
+									
+										<li> <code>Ctrl+s</code> to save the Policy and then create a Bar file in the Application Development tab by right clicking and selecting 'BAR file'. Call it MyBar and click 'Finish' it.
+										
+										</li>
+									
+										<li> To build the newly created Policy into the BAR file:<br> - Select the Applications radio button and tick the 'ExampleApp' application<br> - Select the Policies radio button and do the same for the 'Policies' Policy Project<br> - Click 'Build and Save' to generate the BAR file.
+										
+										</li>
+									
+										<li> Start up your Integration Server by typing the following command into the ACE Command Console:<br><code>IntegrationServer --name MyServer --work-dir C:\MyServer</code><br>
+										
+										</li>
+									
+										<li> Deploy the MyBar.bar file to your Integration Server after making a connection to it within the toolkit.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+						</div>
+							
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="deployArtifacts()"> Deploy <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>						
+				    					
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel41">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				    	<div class="row content-details">
+					      	<h4>Follow these steps to complete the tutorial</h4>
+					        
+						    
+								<p> Follow the following steps to complete the tutorial. </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Navigate to a Command Prompt and run this command a handful of times:<br><code>curl -X POST http://localhost:7800/request -d HelloWorld</code>
+										
+										</li>
+									
+										<li> Navigate to your server's working directory:<br><code>C:\MyServer</code> in this example.
+										
+										</li>
+									
+										<li> You should see a text file with the same name you specified in the ActivityLogPolicy, activityLog.txt in this example.
+										
+										</li>
+									
+										<li> Open this file in your preferred text editor and you should see various logs with fields seperated by commas. Each log corresponds to your curl requests made previously.
+										
+										</li>
+									
+										<li> As you can see the Policy we've created and deployed throughout this tutorial has added some useful functionality to our Integration Server, one of many more sophisticated possibilities provided by ACE.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+						</div>
+							
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="cleanUp()" title="Clean up and remove any changes in your workspace made by the tutorial."> Clean Up <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/close-cancel-error_128-red.png"></a></h4>
+				    
+					
+				    </div>
+					
+				</div>	
+			</div> <!-- tab-content -->
+		</div> <!-- columns -->
+	  </div> <!-- row --></body>
+		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/jquery.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/foundation.min.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/main.js"></script>
+	</body>
+<!-- body::End -->
+
+</html>
