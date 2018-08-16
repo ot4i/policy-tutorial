@@ -193,7 +193,7 @@
                                         "details": "Navigate to a Command Prompt and run this command a handful of times:<br><code>curl -X POST http://localhost:7800/request -d HelloWorld</code>"
                                     },
                                     {
-                                        "details": "Navigate to your server's working directory:<br>code>C:\\MyServer</code> in this example."
+                                        "details": "Navigate to your server's working directory:<br><code>C:\\MyServer</code> in this example."
                                     },
                                     {
                                         "details": "You should see a text file with the same name you specified in the ActivityLogPolicy, activityLog.txt in this example."
