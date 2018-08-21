@@ -33,7 +33,7 @@
         "_common":
     		{
             "name": "Policy Projects and Policies",
-            "shortDescription": "Learn how create a policy and deploy one to an Integration Server.",
+            "shortDescription": "Learn about configuring ACE behavior using Policies",
             "durationText": "This tutorial takes approximately",
             "durationTime": "15 minutes",
             "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
@@ -78,13 +78,13 @@
                 "sections":
         				[
                     {
-                        "section": "This tutorial shows how a user would go about creating a simple Policy within a Policy Project. The example will guide the user to create an Activity Log Policy to be deployed with a simple flow."
+                        "section": "This tutorial demonstrates how to create a simple Policy within a Policy Project. The example guides you through the creation of an Activity Log Policy which is deployed alongside a simple flow. The Activity Log Policy specifies how App Connect Enterprise should log activity associated with the deployed flow, saved directly to a local file."
                     },
                     {
-                        "section": "The user will configure the Policy to report any activity assosciated with the deployed flow, directly to a specified file saved locally."
-                    },
-                    {
-                        "section": "Policies are a way to alter the behaviour of, or implement extra functionality to, a deployed flows on an Integration Server. They are a brand new addition to ACE as of V11 and are designed to make managing servers more easy to understand and implement."
+                        "section": "App Connect Enterprise v11 introduces the concept of a Policy Project which can be created in the Toolkit, and is used to hold one or more policies. Policies are used to control connection properties and operational properties which are required by the ACE runtime. A policy can be used by an administrator to override or abstract some specific property values. For example sensitive data  which might differ between runtime environments such as Dev / Test / Production."
+					},
+					{
+						"section": "Policies can also be used to provide global properties that have wider scope than a message flow node, such as the Activity Log example in this tutorial.  To understand more about policy overrides, a separate specific tutorial on this topic has been provided."
                     }
                 ]
             }
@@ -100,11 +100,14 @@
                     "_createComment": "A description of what will happen when the user clicks Import.",
                     "sections":
           					[
-                        {
-                            "section": "Click <span class='uicontrol'>Import</span> and the <span class='application'>SimpleApp</span> application along with a Policy Project, <span class='application'>Policies</span> will both be imported to your workspace."
-                        },
+                        		{
+                            "section": "Click <span class='uicontrol'>Import</span> and the <span class='application'>SimpleApp</span> application and the <span class='application'>SimplePolicyProject</span> policy project will be imported into your workspace"
+                        		},
                   			{
-                  			    "section": "This simple application contains a single messageflow which listens and replies over HTTP. Once we have created our Policy we will build both that and the message flow into a Bar file ready for deployment."
+                  			    "section": "This simple application contains a single messageflow named <span class='application'>HTTPEcho</span> which listens for HTTP data and just echoes the same data back in response. <span class='application'>SimplePolicyProject</span> contains a single policy which is of type <span class='application'>Activity Log</span>. "
+							},
+							{
+								"section":"Activity Log information helps you to understand what your message flows are doing by providing a high-level overview of interactions with external resources. Activity Log messages are concise and avoid technical complexity, although more information is provided in the message detail. Because the log entries are short, uncomplicated, and focused on single activities, they can be quickly scanned and understood. Patterns of behavior and changes to such patterns are easier to identify than in more extensive product trace. Activity Logs can be written to a circular file system. The ActivityLog policy is used to set up file logging if you want continuous logging of activities over a long period. In the next section we will deploy the policy and message flow and observe their behavior."								
                   			}
                     ]
                 },
@@ -139,37 +142,26 @@
                                 "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and run the following command: <br><code>mqsicreateworkdir C:\\MyServer</code><br> where <b>C:\\MyServer</b> will the working directory for your Integration Server."
                             },
                             {
-                                "details": "Right-Click on the Policy Project in the Application Development tab and create a new Policy. Call it ActivityLogPolicy and click 'Finish'"
+                                "details": "Open the policy named <span class='application'>MyActivityLogPolicy.policyxml</span> inside the <span class='application'>SimplePolicyProject</span>"								
                             },
                             {
-                                "details": "Open the new policy for configuring and change the Type to Activity Log. After a brief moment the table below should populate with various fields. Find the 'File name' field and set the value to <b>C:\\MyServer\\activityLog.txt<b>"
+                                "details": "Locate the <code>File name</code> property, set the value to <code>C:\\MyServer\\ActivityLog.txt</code> and save the policy."
                             },
                             {
-                                "details": "<code>Ctrl+s</code> to save the Policy and then create a Bar file in the Application Development tab by right clicking and selecting 'BAR file'. Call it MyBar and click 'Finish' it."
+                                "details": "Create a Broker Archive file inside <span class='application'>SimplePolicyProject</span> named <span class='application'>SimpleDeploy.bar</span>"
                             },
                             {
-                                "details": "To build the newly created Policy into the BAR file:<br> - Select the Applications radio button and tick the 'ExampleApp' application<br> - Select the Policies radio button and do the same for the 'Policies' Policy Project<br> - Click 'Build and Save' to generate the BAR file."
+                                "details": "Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class='application'>SimpleApp</span> application<br> - Select the Policies radio button and select the <span class='application'>SimplePolicyProject<br> - Click the 'Build and Save' button to generate the contents in the BAR file."
                             },
                             {
-                                "details": "Start up your Integration Server by typing the following command into the ACE Command Console:<br><code>IntegrationServer --name MyServer --work-dir C:\\MyServer</code><br>"
+                                "details": "Start an Integration Server by typing the following command into the ACE Command Console:<br><code>IntegrationServer --name MyServer --work-dir C:\\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code><br>"
                             },
                             {
-                                "details": "Deploy the MyBar.bar file to your Integration Server after making a connection to it within the toolkit."
+                                "details": "Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class='application'>SimpleDeploy.bar</span>"
                             }
                           ]
                         }
                       }
-                    ]
-                },
-                "actions":
-        				{
-                    "title": "Prepare Actions",
-                    "details":
-          					[
-                        {
-                            "name": "Deploy",
-                            "method": "deployArtifacts()"
-                        }
                     ]
                 }
             },
@@ -190,37 +182,22 @@
                                 "details":
                 								[
                                     {
-                                        "details": "Navigate to a Command Prompt and run this command a handful of times:<br><code>curl -X POST http://localhost:7800/request -d HelloWorld</code>"
-                                    },
+                                        "details": "Test the message flow by sending HTTP data to it using a client such as cURL:<br><code>curl -X POST http://localhost:7900/HTTPEcho -d HelloWorld</code><br>The message flow should echo back the same HelloWorld message to the HTTP client. Repeat this test a few times."
+									},									
                                     {
-                                        "details": "Navigate to your server's working directory:<br><code>C:\\MyServer</code> in this example."
+                                        "details": "Navigate to the directory location which was specified when editting the Activity Log policy:<br><code>C:\\MyServer</code> and you should see a text file with the name ActivityLog.txt"
                                     },
-                                    {
-                                        "details": "You should see a text file with the same name you specified in the ActivityLogPolicy, activityLog.txt in this example."
+                        				    {
+                                        "details": "Open this file in your preferred text editor and you should see log entries formatted as comma separated data. Each log line corresponds to one of the curl requests which you just made."
                         				    },
                         				    {
-                                        "details": "Open this file in your preferred text editor and you should see various logs with fields seperated by commas. Each log corresponds to your curl requests made previously."
-                        				    },
-                        				    {
-                                        "details": "As you can see the Policy we've created and deployed throughout this tutorial has added some useful functionality to our Integration Server, one of many more sophisticated possibilities provided by ACE."
+                                        "details": "This concludes our simple example demonstrating how to use an Activity Log Policy."
                         				    }
                                 ]
                             }
                         }
                     ]
-                },
-				"exits":
-				{
-					"title": "Run Exits",
-					"details":
-					[
-						{
-							"name": "Clean Up",
-							"description": "Clean up and remove any changes in your workspace made by the tutorial.",
-							"method": "cleanUp()"
-						}
-					]
-				}
+                }
             }
         }
     }
