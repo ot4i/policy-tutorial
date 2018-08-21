@@ -24,13 +24,13 @@
 		
 		<title>IBM Integration Bus V10 Tutorial</title>
 
-    	<link rel="stylesheet" href="http://ot4i.github.io/iib-tutorials/css/main.css" />
-		<link rel="stylesheet" href="http://ot4i.github.io/iib-tutorials/css/app.css" />
+    	<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/main.css" />
+		<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/app.css" />
     	
-		<script src="http://ot4i.github.io/iib-tutorials/js/json2.js"></script>
-		<script src="http://ot4i.github.io/iib-tutorials/js/js2java.js"></script>
-		<script src="http://ot4i.github.io/iib-tutorials/js/js2java_steps.js"></script>
-		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/json2.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/js2java.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/js2java_steps.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
 	</head>
 <!-- header::End -->
 <!-- body::Start -->
@@ -52,7 +52,7 @@
 	<hr>
 	<div class="row">
 		<div class="small-10 medium-10 large-10 columns">
-		<h5> Learn how create a policy and deploy one to an Integration Server. </h5>
+		<h5> Learn about configuring ACE behavior using Policies </h5>
 		</div>
 		<div class="small-2 medium-2 large-2 columns">
 			<button class="small radius button right" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
@@ -82,10 +82,13 @@
 					      	<h4>Import projects</h4>
 					        
 						    
-								<p> Click <span class="uicontrol">Import</span> and the <span class="application">SimpleApp</span> application along with a Policy Project, <span class="application">Policies</span> will both be imported to your workspace. </p>
+								<p> Click <span class="uicontrol">Import</span> and the <span class="application">SimpleApp</span> application and the <span class="application">SimplePolicyProject</span> policy project will be imported into your workspace </p>
 								
 							
-								<p> This simple application contains a single messageflow which listens and replies over HTTP. Once we have created our Policy we will build both that and the message flow into a Bar file ready for deployment. </p>
+								<p> This simple application contains a single messageflow named <span class="application">HTTPEcho</span> which listens for HTTP data and just echoes the same data back in response. <span class="application">SimplePolicyProject</span> contains a single policy which is of type <span class="application">Activity Log</span>.  </p>
+								
+							
+								<p> Activity Log information helps you to understand what your message flows are doing by providing a high-level overview of interactions with external resources. Activity Log messages are concise and avoid technical complexity, although more information is provided in the message detail. Because the log entries are short, uncomplicated, and focused on single activities, they can be quickly scanned and understood. Patterns of behavior and changes to such patterns are easier to identify than in more extensive product trace. Activity Logs can be written to a circular file system. The ActivityLog policy is used to set up file logging if you want continuous logging of activities over a long period. In the next section we will deploy the policy and message flow and observe their behavior. </p>
 								
 							
 						</div>
@@ -95,14 +98,14 @@
 					<div class="small-2 medium-2 large-2 columns">
 					
 					
-					<h4 class="tkaction"><a href="javascript:;" onclick="importArtifacts(); openResource('EventRoutingFlow')"> Import <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>
+					<h4 class="tkaction"><a href="javascript:;" onclick="importArtifacts(); openResource('EventRoutingFlow')"> Import <img class="icon-image" src="https://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>
 										
 				    </div>
 					
 		    	</div>
 		    	<div class="content" id="panel31">
 					
-		    		<div class="small-10 medium-10 large-10 columns divider">
+					<div class="small-12 medium-12 large-12 columns">
 					
 						<div class="row content-details">
 						  	<h4>Prepare an Integration Server</h4>
@@ -119,27 +122,27 @@
 										
 										</li>
 									
-										<li> Right-Click on the Policy Project in the Application Development tab and create a new Policy. Call it ActivityLogPolicy and click 'Finish'
+										<li> Open the policy named <span class="application">MyActivityLogPolicy.policyxml</span> inside the <span class="application">SimplePolicyProject</span>
 										
 										</li>
 									
-										<li> Open the new policy for configuring and change the Type to Activity Log. After a brief moment the table below should populate with various fields. Find the 'File name' field and set the value to <b>C:\MyServer\activityLog.txt<b>
-										
-										</b></b></li>
-									
-										<li> <code>Ctrl+s</code> to save the Policy and then create a Bar file in the Application Development tab by right clicking and selecting 'BAR file'. Call it MyBar and click 'Finish' it.
+										<li> Locate the <code>File name</code> property, set the value to <code>C:\MyServer\ActivityLog.txt</code> and save the policy.
 										
 										</li>
 									
-										<li> To build the newly created Policy into the BAR file:<br> - Select the Applications radio button and tick the 'ExampleApp' application<br> - Select the Policies radio button and do the same for the 'Policies' Policy Project<br> - Click 'Build and Save' to generate the BAR file.
+										<li> Create a Broker Archive file inside <span class="application">SimplePolicyProject</span> named <span class="application">SimpleDeploy.bar</span>
 										
 										</li>
 									
-										<li> Start up your Integration Server by typing the following command into the ACE Command Console:<br><code>IntegrationServer --name MyServer --work-dir C:\MyServer</code><br>
+										<li> Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class="application">SimpleApp</span> application<br> - Select the Policies radio button and select the <span class="application">SimplePolicyProject<br> - Click the 'Build and Save' button to generate the contents in the BAR file.
+										
+										</span></li>
+									
+										<li> Start an Integration Server by typing the following command into the ACE Command Console:<br><code>IntegrationServer --name MyServer --work-dir C:\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code><br>
 										
 										</li>
 									
-										<li> Deploy the MyBar.bar file to your Integration Server after making a connection to it within the toolkit.
+										<li> Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class="application">SimpleDeploy.bar</span>
 										
 										</li>
 									
@@ -152,17 +155,10 @@
 							
 					</div>
 					
-					<div class="small-2 medium-2 large-2 columns">
-					
-					
-					<h4 class="tkaction"><a href="javascript:;" onclick="deployArtifacts()"> Deploy <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>						
-				    					
-				    </div>
-					
 		    	</div>
 		    	<div class="content" id="panel41">
 		    		
-		    		<div class="small-10 medium-10 large-10 columns divider">
+					<div class="small-12 medium-12 large-12 columns">
 					
 				    	<div class="row content-details">
 					      	<h4>Follow these steps to complete the tutorial</h4>
@@ -175,23 +171,19 @@
 									<ol>
 									
 									
-										<li> Navigate to a Command Prompt and run this command a handful of times:<br><code>curl -X POST http://localhost:7800/request -d HelloWorld</code>
+										<li> Test the message flow by sending HTTP data to it using a client such as cURL:<br><code>curl -X POST http://localhost:7900/HTTPEcho -d HelloWorld</code><br>The message flow should echo back the same HelloWorld message to the HTTP client. Repeat this test a few times.
 										
 										</li>
 									
-										<li> Navigate to your server's working directory:<br><code>C:\MyServer</code> in this example.
+										<li> Navigate to the directory location which was specified when editting the Activity Log policy:<br><code>C:\MyServer</code> and you should see a text file with the name ActivityLog.txt
 										
 										</li>
 									
-										<li> You should see a text file with the same name you specified in the ActivityLogPolicy, activityLog.txt in this example.
+										<li> Open this file in your preferred text editor and you should see log entries formatted as comma separated data. Each log line corresponds to one of the curl requests which you just made.
 										
 										</li>
 									
-										<li> Open this file in your preferred text editor and you should see various logs with fields seperated by commas. Each log corresponds to your curl requests made previously.
-										
-										</li>
-									
-										<li> As you can see the Policy we've created and deployed throughout this tutorial has added some useful functionality to our Integration Server, one of many more sophisticated possibilities provided by ACE.
+										<li> This concludes our simple example demonstrating how to use an Activity Log Policy.
 										
 										</li>
 									
@@ -204,24 +196,13 @@
 							
 					</div>
 					
-					<div class="small-2 medium-2 large-2 columns">
-					
-					
-					
-					
-					
-					<h4 class="tkaction"><a href="javascript:;" onclick="cleanUp()" title="Clean up and remove any changes in your workspace made by the tutorial."> Clean Up <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/close-cancel-error_128-red.png"></a></h4>
-				    
-					
-				    </div>
-					
 				</div>	
 			</div> <!-- tab-content -->
 		</div> <!-- columns -->
 	  </div> <!-- row --></body>
-		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/jquery.js"></script>
-		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/foundation.min.js"></script>
-		<script src="http://ot4i.github.io/iib-tutorials/js/main.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/jquery.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/foundation.min.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/main.js"></script>
 	</body>
 <!-- body::End -->
 
