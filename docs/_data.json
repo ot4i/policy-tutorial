@@ -163,7 +163,34 @@
                         }
                       }
                     ]
-                }
+                },
+				
+									"helpLinks": 
+			{
+				"_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+				"title": "Find out more",
+				"details": 
+				[
+					{
+						"title": "Knowledge Center link to ",
+						"description": "Creating a BAR file",
+						"link": "com.ibm.etools.mft.doc/af03870_.htm",
+						"type": "help"
+					},
+					{
+						"title": "Knowledge Center link to ",
+						"description": "Adding resources to a BAR file",
+						"link": "com.ibm.etools.mft.doc/af03880_.htm",
+						"type": "help"
+					},
+					{
+						"title": "Knowledge Center link to ",
+						"description": "Starting an integration server",
+						"link": "com.ibm.etools.mft.doc/be10140_.htm",
+						"type": "help"
+					}					
+				]
+			}			
             },
             "run":
       			{
