@@ -41,7 +41,7 @@
             "helpLink":
       			{
                 "text": "IBM Knowledge Center",
-                "link": "/com.ibm.ace.home.doc/help_home.htm"
+           		"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
             }
         },
         "pageDetails":
@@ -174,20 +174,20 @@
 					{
 						"title": "Knowledge Center link to ",
 						"description": "Creating a BAR file",
-						"link": "com.ibm.etools.mft.doc/af03870_.htm",
-						"type": "help"
+						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/af03870_.htm",
+						"type": "web"
 					},
 					{
 						"title": "Knowledge Center link to ",
 						"description": "Adding resources to a BAR file",
-						"link": "com.ibm.etools.mft.doc/af03880_.htm",
-						"type": "help"
+						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/af03880_.htm",
+						"type": "web"
 					},
 					{
 						"title": "Knowledge Center link to ",
 						"description": "Starting an integration server",
-						"link": "com.ibm.etools.mft.doc/be10140_.htm",
-						"type": "help"
+						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/be10140_.htm",
+						"type": "web"
 					}					
 				]
 			}			
