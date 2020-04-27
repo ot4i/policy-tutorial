@@ -118,15 +118,11 @@
 									<ol>
 									
 									
-										<li> Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and run the following command: <br><code>mqsicreateworkdir C:\MyServer</code><br> where <b>C:\MyServer</b> will the working directory for your Integration Server.
-										
-										</li>
-									
 										<li> Open the policy named <span class="application">MyActivityLogPolicy.policyxml</span> inside the <span class="application">SimplePolicyProject</span>
 										
 										</li>
 									
-										<li> Locate the <code>File name</code> property, set the value to <code>C:\MyServer\ActivityLog.txt</code> and save the policy.
+										<li> Edit the <code>File name</code> property of the policy:<br><ul><li>If you are using a Windows platform, set the <code>File name</code> property value to <code>C:\MyServer\ActivityLog.txt</code> and save the policy.</li><li>If you are using a UNIX platform, set the <code>File name</code> property value to <code>/MyServer/ActivityLog.txt</code> and save the policy.</li></ul>
 										
 										</li>
 									
@@ -138,7 +134,11 @@
 										
 										</span></li>
 									
-										<li> Start an Integration Server by typing the following command into the ACE Command Console:<br><code>IntegrationServer --name MyServer --work-dir C:\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code><br>
+										<li> If you are using Toolkit version 11.0.0.7 or later, then you can exploit the option to create a local integration server to test this tutorial. However the more detailed instructions which follow, work on earlier versions as well. Open an App Connect Enterprise Command Console and create a working directory by running the mqsicreateworkdir command:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\MyServer</code></li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/MyServer</code></li></ul>
+										
+										</li>
+									
+										<li> Start an Integration Server by typing the following command into the ACE Command Console:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --name MyServer --work-dir C:\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --name MyServer --work-dir /home/exampleuser/MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li></ul>
 										
 										</li>
 									
@@ -197,7 +197,7 @@
 										
 										</li>
 									
-										<li> Navigate to the directory location which was specified when editting the Activity Log policy:<br><code>C:\MyServer</code> and you should see a text file with the name ActivityLog.txt
+										<li> Navigate to the directory location which was specified when editting the Activity Log policy:<br><ul><li>If you are using a Windows platform, navigate to <code>C:\MyServer</code> and you should see a text file with the name ActivityLog.txt</li><li>If you are using a UNIX platform, navigate to <code>/MyServer</code> and you should see a text file with the name ActivityLog.txt</li></ul>
 										
 										</li>
 									
