@@ -33,7 +33,7 @@
 		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
 	</head>
 <!-- header::End -->
-<!-- body::Start -->
+<!-- body::StartA -->
 		<body>
   	<!-- body content here -->
 	<div class="row">
@@ -43,7 +43,7 @@
 	</div>
 	<div class="row">
 	  <div class="small-9 medium-9 large-9 columns">
-	    <h4 class="title">Getting started with ACEv11 - Policy Projects and Policies <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
+	    <h4 class="title">Getting started with ACEv12 - Policy Projects and Policies <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
 	  </div>
 	  <div class="small-3 medium-3 large-3 columns">
 		<a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm')" class="small right helplink">IBM Knowledge Center</a> 
@@ -130,11 +130,15 @@
 										
 										</li>
 									
-										<li> Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class="application">SimpleApp</span> application<br> - Select the Policies radio button and select the <span class="application">SimplePolicyProject<br> - Click the 'Build and Save' button to generate the contents in the BAR file.
+										<li> Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class="application">SimpleApp</span> application<br> - Select the Policies radio button and select the <span class="application">SimplePolicyProject</span><br> - Click the 'Build and Save' button to generate the contents in the BAR file.
 										
-										</span></li>
+										</li>
 									
-										<li> If you are using Toolkit version 11.0.0.7 or later, then you can exploit the option to create a local integration server to test this tutorial. However the more detailed instructions which follow, work on earlier versions as well. Open an App Connect Enterprise Command Console and create a working directory by running the mqsicreateworkdir command:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\MyServer</code></li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/MyServer</code></li></ul>
+										<li> Create a local integration server in the Toolkit ready for testing the scenario and then move straight to the Run part of the tutorial, or alternatively if you prefer to use an integration server outside of the Toolkit you can open an App Connect Enterprise Command Console and keep following the instructions on this Prepare tab to create a server outside the Toolkit.
+										
+										</li>
+									
+										<li> Create a working directory by running the mqsicreateworkdir command:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\MyServer</code></li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/MyServer</code></li></ul>
 										
 										</li>
 									
