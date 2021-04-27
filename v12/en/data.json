@@ -151,7 +151,7 @@
                                 "details": "Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class='application'>SimpleApp</span> application<br> - Select the Policies radio button and select the <span class='application'>SimplePolicyProject</span><br> - Click the 'Build and Save' button to generate the contents in the BAR file."
                             },
 							{
-								"details": "<b>(OPTIONAL)</b> Create a local integration server in the Toolkit as described in <a href=\"javascript:openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn04040_.html');\">Creating and starting a local, independent integration server by using the Toolkit</a> ready for testing the scenario. Then move to the Run part of the tutorial, or alternatively if you prefer to use an integration server outside of the Toolkit you can open an IBM App Connect Enterprise Command Console and keep following the instructions on this Prepare tab to create a server outside the Toolkit."
+								"details": "<b>(OPTIONAL)</b> Create a local integration server in the Toolkit ready for testing the scenario (scroll down for a documentation link in the <b>Find out more</b> section). Then move to the Run part of the tutorial, or alternatively if you prefer to use an integration server outside of the Toolkit you can open an IBM App Connect Enterprise Command Console and keep following the instructions on this Prepare tab to create a server outside the Toolkit."
 							},
 							{
 								"details": "<b>(OPTIONAL ALTERNATIVE. Do this step if you did not run step 5)</b> Create a working directory by running the mqsicreateworkdir command:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\\MyServer</code></li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/MyServer</li></ul>"
@@ -169,11 +169,18 @@
                 },
 				
 									"helpLinks": 
+
 			{
 				"_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
 				"title": "Find out more",
 				"details": 
 				[
+{
+						"title": "Knowledge Center link to ",
+						"description": "Creating and starting a local, independent integration server by using the Toolkit",
+						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn04040_.html",
+						"type": "web"
+					},					
 					{
 						"title": "Knowledge Center link to ",
 						"description": "Creating a BAR file",
