@@ -145,7 +145,7 @@
                                 "details": "Edit the <code>File name</code> property of the policy:<br><ul><li>If you are using a Windows platform, set the <code>File name</code> property value to <code>C:\\MyServer\\ActivityLog.txt</code> and save the policy.</li><li>If you are using a UNIX platform, set the <code>File name</code> property value to <code>/MyServer/ActivityLog.txt</code> and save the policy.</li></ul>"
                             },
                             {
-                                "details": "Create a Broker Archive file inside <span class='application'>SimplePolicyProject</span> named <span class='application'>SimpleDeploy.bar</span>"
+                                "details": "Create a Broker Archive file named <span class='application'>SimpleDeploy.bar</span>"
                             },
                             {
                                 "details": "Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class='application'>SimpleApp</span> application<br> - Select the Policies radio button and select the <span class='application'>SimplePolicyProject<br> - Click the 'Build and Save' button to generate the contents in the BAR file."
