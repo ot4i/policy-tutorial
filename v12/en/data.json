@@ -40,8 +40,8 @@
             "resourceToOpen": "EventRoutingFlow",
             "helpLink":
       			{
-                "text": "IBM Knowledge Center",
-           		"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+                "text": "IBM Documentation",
+           		"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
             }
         },
         "pageDetails":
@@ -176,27 +176,27 @@
 				"details": 
 				[
 {
-						"title": "Knowledge Center link to ",
+						"title": "IBM Documentation link to ",
 						"description": "Creating and starting a local, independent integration server by using the Toolkit",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn04040_.html",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bn04040_.html",
 						"type": "web"
 					},					
 					{
-						"title": "Knowledge Center link to ",
+						"title": "IBM Documentation link to ",
 						"description": "Creating a BAR file",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/af03870_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/af03870_.htm",
 						"type": "web"
 					},
 					{
-						"title": "Knowledge Center link to ",
+						"title": "IBM Documentation link to ",
 						"description": "Adding resources to a BAR file",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/af03880_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/af03880_.htm",
 						"type": "web"
 					},
 					{
-						"title": "Knowledge Center link to ",
+						"title": "IBM Documentation link to ",
 						"description": "Starting an integration server",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/be10140_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/be10140_.htm",
 						"type": "web"
 					}					
 				]
