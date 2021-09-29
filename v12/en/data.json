@@ -160,7 +160,7 @@
                                 "details": "<b>(OPTIONAL ALTERNATIVE. Do this step if you did not run step 5)</b> Start an Integration Server by typing the following command into the Command Console:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --name MyServer --work-dir C:\\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --name MyServer --work-dir /home/exampleuser/MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li></ul>"
                             },
                             {
-                                "details": "<b>(OPTIONAL ALTERNATIVE. Do this step if you did not run step 5)</b> Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class='application'>SimpleDeploy.bar</span>"
+                                "details": "Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class='application'>SimpleDeploy.bar</span>"
                             }
                           ]
                         }
