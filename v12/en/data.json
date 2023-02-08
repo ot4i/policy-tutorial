@@ -142,7 +142,7 @@
                                 "details": "Open the policy named <span class='application'>MyActivityLogPolicy.policyxml</span> inside the <span class='application'>SimplePolicyProject</span>. If you are using ACE 12.0.2.0 or higher, you will see a pop-up message which informs you that new policy properties have been added to the product since this policy was first created. Click OK so that the new properties will be added to the policy. The new properties relate to sending Activity Log to ELK, so are not directly used by this tutorial, but it does no harm to have them present in the policy just in case you wish to go beyond the tutorial and try out these aspects for yourself!"								
 							},
                             {
-                                "details": "Edit the <code>File name</code> property of the policy:<br><ul><li>If you are using a Windows platform, set the <code>File name</code> property value to <code>C:\\MyServer\\ActivityLog.txt</code> and save the policy.</li><li>If you are using a UNIX platform, set the <code>File name</code> property value to <code>/MyServer/ActivityLog.txt</code> and save the policy.</li></ul>"
+                                "details": "Edit the <code>File name</code> property of the policy:<br><ul><li>If you are using a Windows platform, set the <code>File name</code> property value to a location where ACE will have write privileges such as <code>C:\\MyServer\\ActivityLog.txt</code> and save the policy.</li><li>If you are using a UNIX platform, set the <code>File name</code> property value to a location where ACE will have write privileges such as <code>/tmp/MyServer/ActivityLog.txt</code> and save the policy.</li></ul>"
                             },
                             {
                                 "details": "Create a Broker Archive file named <span class='application'>SimpleDeploy.bar</span>"
@@ -222,7 +222,7 @@
                                         "details": "Test the message flow by sending HTTP data to it using a client such as cURL:<br><code>curl -X POST http://localhost:7900/HTTPEcho -d HelloWorld</code><br>The message flow should echo back the same HelloWorld message to the HTTP client. Repeat this test a few times."
 									},									
                                     {
-                                        "details": "Navigate to the directory location which was specified when editting the Activity Log policy:<br><ul><li>If you are using a Windows platform, navigate to <code>C:\\MyServer</code> and you should see a text file with the name ActivityLog.txt</li><li>If you are using a UNIX platform, navigate to <code>/MyServer</code> and you should see a text file with the name ActivityLog.txt</li></ul>"										
+                                        "details": "Navigate to the directory location which was specified when editting the Activity Log policy:<br><ul><li>If you are using a Windows platform and followed the example, navigate to <code>C:\\MyServer</code> and you should see a text file with the name ActivityLog.txt</li><li>If you are using a UNIX platform and followed the example, navigate to <code>/tmp/MyServer</code> and you should see a text file with the name ActivityLog.txt</li></ul>"										
                                     },
                         			{
                                         "details": "Open this file in your preferred text editor and you should see log entries formatted as comma separated data. Each log line corresponds to one of the curl requests which you just made."
